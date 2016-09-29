@@ -9,32 +9,50 @@ package Modelo;
  *
  * @author Andrés
  */
-
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class CuentaDAO {
-    private Ahorro cuenta;
-    ArrayList<Cuenta> listaCliente =new ArrayList();
-    
+
+    private Cuenta cuenta;
+    private Ahorro ahorro;
+    private Corriente corriente;
+
+    ArrayList<Cuenta> listaCliente = new ArrayList();
+
     public void adicionarCuenta(Cuenta cuenta) {
 
         listaCliente.add(cuenta);
         JOptionPane.showMessageDialog(null, "Cliente adicionado correctamente");
 
     }
-    
-    public Ahorro buscarCuenta(int numero) {
 
-        Ahorro buscar = null;
-
-        for (Ahorro c : listaCliente) {
-            if (c.) == identificacion) {
-                cliente = c;
+    public Cuenta buscarCuenta(int codigo) {
+        Cuenta buscar = null;
+        for (Cuenta p : listaCliente) {
+            if (codigo == p.getNumero()) {
+                buscar = p;
                 break;
             }
         }
-        return cliente;
+        return buscar;
     }
-    
+
+    public void modificaProducto(int indice, Cuenta cuenta) {
+        listaCliente.set(indice, cuenta);
+    }
+
+    public void elimaProducto(Cuenta cuenta) {
+        listaCliente.remove(cuenta);
+    }
+
+    public ArrayList<Cuenta> listaDeProductos() {
+        return listaCliente;
+    }
+
+    public int obtenerProducto(Cuenta cuenta) {
+        return listaCliente.indexOf(cuenta);
+
+    }
+
 }

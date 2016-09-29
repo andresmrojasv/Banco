@@ -14,42 +14,8 @@ public class Ahorro extends Cuenta {
 
     public Ahorro(int numero, long saldo, Persona titular, String tipoCuenta) {
         super(numero, saldo, titular, tipoCuenta);
-        
-    }
 
-    public int getNumero() {
-        return numero;
     }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-    public long getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(long saldo) {
-        this.saldo = saldo;
-    }
-
-    public Persona getTitular() {
-        return titular;
-    }
-
-    public void setTitular(Persona titular) {
-        this.titular = titular;
-    }
-
-    public String getTipoCuenta() {
-        return tipoCuenta;
-    }
-
-    public void setTipoCuenta(String tipoCuenta) {
-        this.tipoCuenta = tipoCuenta;
-    }
-    
-    
 
     @Override
     public long deposito(long deposito) {
@@ -60,7 +26,7 @@ public class Ahorro extends Cuenta {
 
         saldo = (long) (saldo + (saldo * 0.03));
         //se muestra el nuevo saldo de la cuenta
-        
+
         return saldo;
 
     }
