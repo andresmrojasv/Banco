@@ -24,13 +24,13 @@ public class CuentaDAO {
 
         listaCliente.add(cuenta);
         JOptionPane.showMessageDialog(null, "Cliente adicionado correctamente");
-
+        System.out.println(cuenta.toString());
     }
 
     public Cuenta buscarCuenta(int codigo) {
         Cuenta buscar = null;
         for (Cuenta p : listaCliente) {
-            if (codigo == p.getNumero()) {
+            if (codigo == p.titular.getId()) {
                 buscar = p;
                 break;
             }
@@ -40,6 +40,7 @@ public class CuentaDAO {
 
     public void modificaProducto(int indice, Cuenta cuenta) {
         listaCliente.set(indice, cuenta);
+        
     }
 
     public void elimaProducto(Cuenta cuenta) {

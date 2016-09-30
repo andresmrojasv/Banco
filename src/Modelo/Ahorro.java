@@ -5,12 +5,14 @@
  */
 package Modelo;
 
+import java.io.Serializable;
+
 /**
  * *Autores: Pablo Garcia (38862), Andrés Rojas (41423), Daniel Rosero (41305)
  *
  * @author ESTACION
  */
-public class Ahorro extends Cuenta {
+public class Ahorro extends Cuenta implements Serializable {
 
     public Ahorro(int numero, long saldo, Persona titular, String tipoCuenta) {
         super(numero, saldo, titular, tipoCuenta);

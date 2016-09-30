@@ -18,7 +18,6 @@ public abstract class Cuenta {
     protected long saldo;
     protected Persona titular;
     protected String tipoCuenta;
-    
 
     public Cuenta(int numero, long saldo, Persona titular, String tipoCuenta) {
         this.numero = numero;
@@ -59,10 +58,17 @@ public abstract class Cuenta {
         this.tipoCuenta = tipoCuenta;
     }
 
-    
-
     public abstract long deposito(long deposito);
 
     public abstract long retiro(long retiro);
+
+    @Override
+    public String toString() {
+        return "Cuenta{" + "numero=" + numero + ", saldo=" + saldo + ", titular=" + titular + ", tipoCuenta=" + tipoCuenta + '}';
+    }
+
+ 
+    
+    
 
 }

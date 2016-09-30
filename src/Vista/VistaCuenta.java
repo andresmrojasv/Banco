@@ -27,26 +27,27 @@ public class VistaCuenta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroupTCuenta = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLCedulaDeCiudadania = new javax.swing.JLabel();
         jLNombreDelTitular = new javax.swing.JLabel();
         jTCedulaDeCiudadania = new javax.swing.JTextField();
         jTNombreDelTitular = new javax.swing.JTextField();
+        jLDatosDelCliente = new javax.swing.JLabel();
+        jLDatosDeLaCuenta = new javax.swing.JLabel();
+        jBCrear = new javax.swing.JButton();
+        jBTransaccion = new javax.swing.JButton();
+        jBListaCuentas = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLNumeroDeLaCuenta = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLSaldo = new javax.swing.JLabel();
         jTNumeroDeLaCuenta = new javax.swing.JTextField();
         jRAhorros = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        jRCorriente = new javax.swing.JRadioButton();
         jTSaldo = new javax.swing.JTextField();
         jBConsulta = new javax.swing.JButton();
-        jLDatosDelCliente = new javax.swing.JLabel();
-        jLDatosDeLaCuenta = new javax.swing.JLabel();
-        jBCrear = new javax.swing.JButton();
-        jBTransaccion = new javax.swing.JButton();
-        jBListaCuentas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cuenta");
@@ -65,6 +66,11 @@ public class VistaCuenta extends javax.swing.JFrame {
         jTCedulaDeCiudadania.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         jTNombreDelTitular.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTNombreDelTitular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTNombreDelTitularActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -95,6 +101,24 @@ public class VistaCuenta extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
+        jLDatosDelCliente.setText("Datos del Cliente");
+
+        jLDatosDeLaCuenta.setText("Datos de la Cuenta");
+
+        jBCrear.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jBCrear.setText("Crear");
+        jBCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCrearActionPerformed(evt);
+            }
+        });
+
+        jBTransaccion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jBTransaccion.setText("Transacción");
+
+        jBListaCuentas.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jBListaCuentas.setText("Lista Cuentas");
+
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLNumeroDeLaCuenta.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -108,13 +132,14 @@ public class VistaCuenta extends javax.swing.JFrame {
 
         jTNumeroDeLaCuenta.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
+        buttonGroupTCuenta.add(jRAhorros);
         jRAhorros.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jRAhorros.setText("Ahorros");
 
-        jRadioButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jRadioButton1.setText("Corriente");
+        buttonGroupTCuenta.add(jRCorriente);
+        jRCorriente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jRCorriente.setText("Corriente");
 
-        jTSaldo.setEditable(false);
         jTSaldo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         jBConsulta.setText("Consulta");
@@ -135,7 +160,7 @@ public class VistaCuenta extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jRAhorros)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton1))
+                        .addComponent(jRCorriente))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jTSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -153,7 +178,7 @@ public class VistaCuenta extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jRAhorros)
-                    .addComponent(jRadioButton1))
+                    .addComponent(jRCorriente))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLSaldo)
@@ -161,19 +186,6 @@ public class VistaCuenta extends javax.swing.JFrame {
                     .addComponent(jBConsulta))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jLDatosDelCliente.setText("Datos del Cliente");
-
-        jLDatosDeLaCuenta.setText("Datos de la Cuenta");
-
-        jBCrear.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jBCrear.setText("Crear");
-
-        jBTransaccion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jBTransaccion.setText("Transacción");
-
-        jBListaCuentas.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jBListaCuentas.setText("Lista Cuentas");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -191,13 +203,13 @@ public class VistaCuenta extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLDatosDeLaCuenta)
                                 .addGap(0, 323, Short.MAX_VALUE))
-                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jBCrear)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jBTransaccion)
                                 .addGap(51, 51, 51)
-                                .addComponent(jBListaCuentas)))
+                                .addComponent(jBListaCuentas))
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -239,6 +251,14 @@ public class VistaCuenta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBCrearActionPerformed
+
+    private void jTNombreDelTitularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTNombreDelTitularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTNombreDelTitularActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -276,6 +296,7 @@ public class VistaCuenta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.ButtonGroup buttonGroupTCuenta;
     public javax.swing.JButton jBConsulta;
     public javax.swing.JButton jBCrear;
     public javax.swing.JButton jBListaCuentas;
@@ -291,7 +312,7 @@ public class VistaCuenta extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     public javax.swing.JRadioButton jRAhorros;
-    public javax.swing.JRadioButton jRadioButton1;
+    public javax.swing.JRadioButton jRCorriente;
     public javax.swing.JTextField jTCedulaDeCiudadania;
     public javax.swing.JTextField jTNombreDelTitular;
     public javax.swing.JTextField jTNumeroDeLaCuenta;

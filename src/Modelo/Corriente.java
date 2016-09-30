@@ -5,19 +5,19 @@
  */
 package Modelo;
 
+import java.io.Serializable;
+
 /**
  * *Autores: Pablo Garcia (38862), Andrés Rojas (41423), Daniel Rosero (41305)
  *
  * @author ESTACION
  */
-public class Corriente extends Cuenta {
-    
+public class Corriente extends Cuenta implements Serializable {
 
     public Corriente(int numero, long saldo, Persona titular, String tipoCuenta) {
         super(numero, saldo, titular, tipoCuenta);
-        
+
     }
-  
 
     @Override
     public long deposito(long deposito) {

@@ -9,15 +9,21 @@ import Modelo.Cuenta;
 import Modelo.Ahorro;
 import Modelo.Corriente;
 import Modelo.CuentaDAO;
+import Modelo.Persona;
 import Vista.VistaCuenta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.*;
+import javax.swing.JOptionPane;
 
 public class ControladorBanco implements ActionListener {
 
     Cuenta cuenta;
+    Ahorro ahorro;
+    Corriente corriente;
     CuentaDAO cuentaDAO;
     VistaCuenta vistaCuenta;
+    Persona persona;
 
     public ControladorBanco(CuentaDAO cuentaDAO, VistaCuenta vistaCuenta) {
 
@@ -30,31 +36,73 @@ public class ControladorBanco implements ActionListener {
         this.vistaCuenta.jBListaCuentas.addActionListener(this);
         this.vistaCuenta.jBTransaccion.addActionListener(this);
         this.vistaCuenta.jBConsulta.addActionListener(this);
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        String tipoCuenta = null;
+
         if ("Crear".equals(e.getActionCommand())) {
-            
-            long CedulaDeCiudadania=Long.parseLong(this.vistaCuenta.jTCedulaDeCiudadania.getText());
-            String nombre= this.vistaCuenta.jTNombreDelTitular.getText();
-            long NumeroDeCuenta=Long.parseLong(this.vistaCuenta.jTNumeroDeLaCuenta.getText());
-            
-            /*
-            long identificacion = Long.parseLong(this.vistacliente.JTdatoIdentificacion.getText());
-            String nombre = this.vistacliente.JTdatoNombre.getText();
-            String direccion = this.vistacliente.JTdatoDireccion.getText();
-            String ciudad = this.vistacliente.JTciudad.getText();
-            
-            this.modelocliente.adicionarcliente(new ClienteVO(identificacion, nombre, direccion, ciudad));
-            
-            this.vistacliente.JTdatoIdentificacion.setText(null);
-            this.vistacliente.JTdatoNombre.setText(null);
-            this.vistacliente.JTdatoDireccion.setText(null);
-            this.vistacliente.JTciudad.setText(null);*/
+
+            int CedulaDeCiudadania = Integer.parseInt(this.vistaCuenta.jTCedulaDeCiudadania.getText());
+            String nombre = this.vistaCuenta.jTNombreDelTitular.getText();
+            int NumeroDeCuenta = Integer.parseInt(this.vistaCuenta.jTNumeroDeLaCuenta.getText());
+
+            if (this.vistaCuenta.jRAhorros.isSelected() == true) {
+
+                tipoCuenta = "Ahorro";
+
+            } else {
+                if (this.vistaCuenta.jRCorriente.isSelected() == true) {
+
+                    tipoCuenta = "Corriente";
+
+                }
+            }
+
+            long saldo = Long.parseLong(this.vistaCuenta.jTSaldo.getText());
+
+            if (tipoCuenta == "Ahorro") {
+                this.cuentaDAO.adicionarCuenta(new Ahorro(NumeroDeCuenta, saldo, new Persona(CedulaDeCiudadania, nombre), tipoCuenta));
+            } else {
+                if (tipoCuenta == "Corriente") {
+                    this.cuentaDAO.adicionarCuenta(new Corriente(NumeroDeCuenta, saldo, new Persona(CedulaDeCiudadania, nombre), tipoCuenta));
+                }
+
+            }
+            this.vistaCuenta.jTCedulaDeCiudadania.setText(null);
+            this.vistaCuenta.jTNombreDelTitular.setText(null);
+            this.vistaCuenta.jTNumeroDeLaCuenta.setText(null);
+            this.vistaCuenta.buttonGroupTCuenta.clearSelection();
+            this.vistaCuenta.jTSaldo.setText(null);
+        }
+
+        if ("Consulta".equals(e.getActionCommand())) {
+
+            cuenta = cuentaDAO.buscarCuenta(Integer.parseInt(this.vistaCuenta.jTCedulaDeCiudadania.getText()));
+
+            System.out.println(cuenta);
+
+            if (cuenta != null) {
+                vistaCuenta.jTCedulaDeCiudadania.setText(String.valueOf(cuenta.getTitular().getId()));
+                vistaCuenta.jTNombreDelTitular.setText(cuenta.getTitular().getNombre());
+                vistaCuenta.jTNumeroDeLaCuenta.setText(String.valueOf((cuenta.getNumero())));
+
+                if (cuenta.getTipoCuenta() == "Ahorro") {
+                    vistaCuenta.jRAhorros.setSelected(true);
+                } else {
+                    if (cuenta.getTipoCuenta() == "Corriente") {
+                        vistaCuenta.jRCorriente.setSelected(true);
+                    }
+                }
+
+                vistaCuenta.jTSaldo.setText(String.valueOf(cuenta.getSaldo()));
+
+            }
 
         }
-    }
 
+    }
 }

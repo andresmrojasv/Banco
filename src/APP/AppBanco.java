@@ -11,16 +11,16 @@ import Modelo.CuentaDAO;
 //import Modelo.Corriente;
 import Modelo.Cuenta;
 import Vista.VistaCuenta;
-import Vista.VistaListaClientes;
+import Vista.VistaListaCuentas;
 
 public class AppBanco {
-    
-   VistaCuenta vistacuenta=new VistaCuenta();
-   VistaListaClientes vlc=new VistaListaClientes();
-   CuentaDAO cuentaDao=new CuentaDAO();
-   
-   
-   ControladorBanco controladorBanco=new ControladorBanco(cuentaDao,vistacuenta);
-   
-    
+
+    public static void main(String[] args) {
+        VistaCuenta vistacuenta = new VistaCuenta();
+        VistaListaCuentas vlc = new VistaListaCuentas();
+        CuentaDAO cuentaDao = new CuentaDAO();
+
+        ControladorBanco controladorBanco = new ControladorBanco(cuentaDao, vistacuenta);
+    }
+
 }
