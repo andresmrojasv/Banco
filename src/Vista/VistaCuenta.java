@@ -114,6 +114,7 @@ public class VistaCuenta extends javax.swing.JFrame {
         jRadioButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jRadioButton1.setText("Corriente");
 
+        jTSaldo.setEditable(false);
         jTSaldo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         jBConsulta.setText("Consulta");
@@ -290,10 +291,10 @@ public class VistaCuenta extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     public javax.swing.JRadioButton jRAhorros;
-    private javax.swing.JRadioButton jRadioButton1;
+    public javax.swing.JRadioButton jRadioButton1;
     public javax.swing.JTextField jTCedulaDeCiudadania;
-    private javax.swing.JTextField jTNombreDelTitular;
-    private javax.swing.JTextField jTNumeroDeLaCuenta;
+    public javax.swing.JTextField jTNombreDelTitular;
+    public javax.swing.JTextField jTNumeroDeLaCuenta;
     public javax.swing.JTextField jTSaldo;
     // End of variables declaration//GEN-END:variables
 }

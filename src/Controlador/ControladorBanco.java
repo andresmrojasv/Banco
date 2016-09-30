@@ -10,47 +10,51 @@ import Modelo.Ahorro;
 import Modelo.Corriente;
 import Modelo.CuentaDAO;
 import Vista.VistaCuenta;
-import Vista.VistaListaClientes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ControladorBanco implements ActionListener{
+public class ControladorBanco implements ActionListener {
 
     Cuenta cuenta;
-    Ahorro ahorro;
-    Corriente corriente;
     CuentaDAO cuentaDAO;
     VistaCuenta vistaCuenta;
-    VistaListaClientes vlClientes;
 
-    public ControladorBanco(Cuenta cuenta, Ahorro ahorro, Corriente corriente, CuentaDAO cuentaDAO, VistaCuenta vistaCuenta, VistaListaClientes vlClientes) {
-        this.cuenta = cuenta;
-        this.ahorro = ahorro;
-        this.corriente = corriente;
+    public ControladorBanco(CuentaDAO cuentaDAO, VistaCuenta vistaCuenta) {
+
         this.cuentaDAO = cuentaDAO;
         this.vistaCuenta = vistaCuenta;
-        this.vlClientes = vlClientes;
-        
+
         this.vistaCuenta.setVisible(true);
-        this.vlClientes.setVisible(true);
-        
+
         this.vistaCuenta.jBCrear.addActionListener(this);
         this.vistaCuenta.jBListaCuentas.addActionListener(this);
         this.vistaCuenta.jBTransaccion.addActionListener(this);
         this.vistaCuenta.jBConsulta.addActionListener(this);
     }
-    
-    
-    
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        
-        if("Crear".equals(e.getActionCommand())){
+
+        if ("Crear".equals(e.getActionCommand())) {
             
+            long CedulaDeCiudadania=Long.parseLong(this.vistaCuenta.jTCedulaDeCiudadania.getText());
+            String nombre= this.vistaCuenta.jTNombreDelTitular.getText();
+            long NumeroDeCuenta=Long.parseLong(this.vistaCuenta.jTNumeroDeLaCuenta.getText());
+            
+            /*
+            long identificacion = Long.parseLong(this.vistacliente.JTdatoIdentificacion.getText());
+            String nombre = this.vistacliente.JTdatoNombre.getText();
+            String direccion = this.vistacliente.JTdatoDireccion.getText();
+            String ciudad = this.vistacliente.JTciudad.getText();
+            
+            this.modelocliente.adicionarcliente(new ClienteVO(identificacion, nombre, direccion, ciudad));
+            
+            this.vistacliente.JTdatoIdentificacion.setText(null);
+            this.vistacliente.JTdatoNombre.setText(null);
+            this.vistacliente.JTdatoDireccion.setText(null);
+            this.vistacliente.JTciudad.setText(null);*/
+
         }
     }
-    
-    
 
 }
