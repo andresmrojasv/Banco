@@ -5,6 +5,9 @@
  */
 package Vista;
 
+import Controlador.ControladorTrans;
+import Modelo.CuentaDAO;
+
 /**
  *
  * @author Andrés
@@ -115,6 +118,11 @@ public class VistaCuenta extends javax.swing.JFrame {
 
         jBTransaccion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jBTransaccion.setText("Transacción");
+        jBTransaccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTransaccionActionPerformed(evt);
+            }
+        });
 
         jBListaCuentas.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jBListaCuentas.setText("Lista Cuentas");
@@ -258,6 +266,13 @@ public class VistaCuenta extends javax.swing.JFrame {
     private void jTNombreDelTitularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTNombreDelTitularActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTNombreDelTitularActionPerformed
+
+    private void jBTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTransaccionActionPerformed
+        
+        this.dispose();
+        
+
+    }//GEN-LAST:event_jBTransaccionActionPerformed
 
     /**
      * @param args the command line arguments

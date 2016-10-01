@@ -12,8 +12,10 @@ import Modelo.CuentaDAO;
 import Modelo.Persona;
 import Vista.VistaCuenta;
 import Vista.VistaTransaccion;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 
 
 public class ControladorCuenta implements ActionListener {
@@ -24,6 +26,8 @@ public class ControladorCuenta implements ActionListener {
     CuentaDAO cuentaDAO;
     VistaCuenta vistaCuenta;
     Persona persona;
+
+
 
     public ControladorCuenta(CuentaDAO cuentaDAO, VistaCuenta vistaCuenta) {
 
@@ -103,14 +107,9 @@ public class ControladorCuenta implements ActionListener {
             }
 
         }
-        
-        if ("Transacción".equals(e.getActionCommand())){
-            
-            VistaTransaccion vistaTrans=new VistaTransaccion();
-            vistaTrans.setVisible(true);
-            vistaCuenta.setVisible(false);
-            
-            
+
+        if ("Transacción".equals(e.getActionCommand())) {
+
         }
 
     }

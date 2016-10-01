@@ -27,7 +27,7 @@ public class CuentaDAO {
         System.out.println(cuenta.toString());
     }
 
-    public Cuenta buscarCuenta(int codigo) {
+    public Cuenta buscarCuentaCedula(int codigo) {
         Cuenta buscar = null;
         for (Cuenta p : listaCliente) {
             if (codigo == p.titular.getId()) {
@@ -38,9 +38,21 @@ public class CuentaDAO {
         return buscar;
     }
 
+    public Cuenta buscarCuenta(int codigo) {
+        System.out.println("Comenzo la busqueda");
+        Cuenta buscar = null;
+        for (Cuenta p : listaCliente) {
+            if (codigo == p.getNumero()) {
+                buscar = p;
+                break;
+            }
+        }
+        return buscar;
+    }
+
     public void modificaProducto(int indice, Cuenta cuenta) {
         listaCliente.set(indice, cuenta);
-        
+
     }
 
     public void elimaProducto(Cuenta cuenta) {

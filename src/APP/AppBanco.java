@@ -5,22 +5,28 @@
  */
 package APP;
 
-import Controlador.ControladorBanco;
+import Controlador.ControladorTrans;
+import Controlador.ControladorCuenta;
 import Modelo.CuentaDAO;
 //import Modelo.Ahorro;
 //import Modelo.Corriente;
 import Modelo.Cuenta;
 import Vista.VistaCuenta;
 import Vista.VistaListaCuentas;
+import Vista.VistaTransaccion;
 
 public class AppBanco {
 
     public static void main(String[] args) {
         VistaCuenta vistacuenta = new VistaCuenta();
         VistaListaCuentas vlc = new VistaListaCuentas();
+        VistaTransaccion vistaTrans = new VistaTransaccion();
         CuentaDAO cuentaDao = new CuentaDAO();
 
-        ControladorBanco controladorBanco = new ControladorBanco(cuentaDao, vistacuenta);
+        ControladorCuenta controladorCuenta = new ControladorCuenta(cuentaDao, vistacuenta);
+
+        ControladorTrans controladorTrans = new ControladorTrans(cuentaDao, vistaTrans);
+
     }
 
 }

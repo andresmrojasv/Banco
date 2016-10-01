@@ -36,12 +36,12 @@ public class VistaTransaccion extends javax.swing.JFrame {
         jTtitular = new javax.swing.JTextField();
         jTtipoCuenta = new javax.swing.JTextField();
         jTsaldo = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jBbuscar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jTvalor = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jBConsignar = new javax.swing.JButton();
+        jBRetirar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Transaccion");
@@ -60,14 +60,19 @@ public class VistaTransaccion extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Saldo");
 
+        jTtitular.setEditable(false);
+
+        jTtipoCuenta.setEditable(false);
+
+        jTsaldo.setEditable(false);
         jTsaldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTsaldoActionPerformed(evt);
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setText("Buscar");
+        jBbuscar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jBbuscar.setText("Buscar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,7 +101,7 @@ public class VistaTransaccion extends javax.swing.JFrame {
                             .addComponent(jTtipoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTsaldo))
                         .addGap(63, 63, 63)
-                        .addComponent(jButton1)
+                        .addComponent(jBbuscar)
                         .addGap(191, 191, 191))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,7 +128,7 @@ public class VistaTransaccion extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTsaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jBbuscar))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -132,11 +137,11 @@ public class VistaTransaccion extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Valor");
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton2.setText("Consignar");
+        jBConsignar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jBConsignar.setText("Consignar");
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton3.setText("Retirar");
+        jBRetirar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jBRetirar.setText("Retirar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -149,8 +154,8 @@ public class VistaTransaccion extends javax.swing.JFrame {
                 .addComponent(jTvalor, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(jBConsignar)
+                    .addComponent(jBRetirar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -164,9 +169,9 @@ public class VistaTransaccion extends javax.swing.JFrame {
                             .addComponent(jTvalor, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(jBConsignar)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3)))
+                        .addComponent(jBRetirar)))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
 
@@ -235,9 +240,9 @@ public class VistaTransaccion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButton1;
-    public javax.swing.JButton jButton2;
-    public javax.swing.JButton jButton3;
+    public javax.swing.JButton jBConsignar;
+    public javax.swing.JButton jBRetirar;
+    public javax.swing.JButton jBbuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
