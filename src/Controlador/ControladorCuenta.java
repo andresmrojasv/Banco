@@ -16,8 +16,6 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
-
 public class ControladorCuenta implements ActionListener {
 
     Cuenta cuenta;
@@ -26,8 +24,7 @@ public class ControladorCuenta implements ActionListener {
     CuentaDAO cuentaDAO;
     VistaCuenta vistaCuenta;
     Persona persona;
-
-
+    VistaTransaccion vistaTrans;
 
     public ControladorCuenta(CuentaDAO cuentaDAO, VistaCuenta vistaCuenta) {
 
@@ -35,6 +32,7 @@ public class ControladorCuenta implements ActionListener {
         this.vistaCuenta = vistaCuenta;
 
         this.vistaCuenta.setVisible(true);
+        this.vistaCuenta.setLocationRelativeTo(null);
 
         this.vistaCuenta.jBCrear.addActionListener(this);
         this.vistaCuenta.jBListaCuentas.addActionListener(this);
@@ -49,16 +47,15 @@ public class ControladorCuenta implements ActionListener {
         String tipoCuenta = null;
 
         if ("Crear".equals(e.getActionCommand())) {
-            
+
             int NumeroDeCuenta = Integer.parseInt(this.vistaCuenta.jTNumeroDeLaCuenta.getText());
             long saldo = Long.parseLong(this.vistaCuenta.jTSaldo.getText());
             int CedulaDeCiudadania = Integer.parseInt(this.vistaCuenta.jTCedulaDeCiudadania.getText());
             String nombre = this.vistaCuenta.jTNombreDelTitular.getText();
-            
 
             if (this.vistaCuenta.jRAhorros.isSelected() == true) {
 
-                tipoCuenta = "Ahorro";
+                tipoCuenta = "Ahorros";
 
             } else {
                 if (this.vistaCuenta.jRCorriente.isSelected() == true) {
@@ -68,9 +65,7 @@ public class ControladorCuenta implements ActionListener {
                 }
             }
 
-            
-
-            if (tipoCuenta == "Ahorro") {
+            if (tipoCuenta == "Ahorros") {
                 this.cuentaDAO.adicionarCuenta(new Ahorro(NumeroDeCuenta, saldo, new Persona(CedulaDeCiudadania, nombre), tipoCuenta));
             } else {
                 if (tipoCuenta == "Corriente") {
@@ -111,6 +106,10 @@ public class ControladorCuenta implements ActionListener {
         }
 
         if ("Transacción".equals(e.getActionCommand())) {
+
+         
+            
+            
 
         }
 

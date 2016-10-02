@@ -13,6 +13,8 @@ import Modelo.Persona;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Vista.VistaTransaccion;
+import Vista.VistaListaCuentas;
+import Vista.VistaCuenta;
 import javax.swing.JOptionPane;
 
 public class ControladorTrans implements ActionListener {
@@ -23,6 +25,7 @@ public class ControladorTrans implements ActionListener {
     CuentaDAO cuentaDAO;
     VistaTransaccion vistaTrans;
     Persona persona;
+    VistaCuenta vistaCuenta;
 
     public ControladorTrans(CuentaDAO cuentaDAO, VistaTransaccion vistaTrans) {
 
@@ -32,8 +35,13 @@ public class ControladorTrans implements ActionListener {
         this.vistaTrans.jBbuscar.addActionListener(this);
         this.vistaTrans.jBRetirar.addActionListener(this);
         this.vistaTrans.jBConsignar.addActionListener(this);
-
+        
         this.vistaTrans.setVisible(true);
+        this.vistaTrans.setLocationRelativeTo(null);
+
+    }
+
+    public void inicializartransaccion() {
 
     }
 
@@ -63,25 +71,47 @@ public class ControladorTrans implements ActionListener {
 
             int indice = cuentaDAO.obtenerProducto(cuenta1);
 
-            // if (vistaTrans.jTtipoCuenta.getText() == "Ahorros") {
-            int NumeroDeCuenta = Integer.parseInt(this.vistaTrans.jTnumeroCuenta.getText());
+            String tipocuenta = this.vistaTrans.jTtipoCuenta.getText();
 
-           //long saldobase=Long.parseLong(this.vistaTrans.jTsaldo.getText());
-           //long consignar = Long.parseLong(vistaTrans.jTvalor.getText());
-            //System.out.println(consignar);
+            int NumeroDeCuenta = Integer.parseInt(this.vistaTrans.jTnumeroCuenta.getText());
 
             long saldo = cuenta1.deposito(Long.parseLong(vistaTrans.jTvalor.getText()));
 
             int CedulaDeCiudadania = Integer.parseInt(this.vistaTrans.jTIdentificacion.getText());
             String nombre = this.vistaTrans.jTtitular.getText();
 
-            this.cuentaDAO.modificaProducto(indice, new Ahorro(NumeroDeCuenta, saldo, new Persona(CedulaDeCiudadania, nombre), "Ahorro"));
+            if (tipocuenta.equals("Ahorros")) {
+                this.cuentaDAO.modificaProducto(indice, new Ahorro(NumeroDeCuenta, saldo, new Persona(CedulaDeCiudadania, nombre), "Ahorros"));
 
-            //JOptionPane.showMessageDialog(null, "El nuevo saldo es: "+cuenta1.getSaldo());
-            // } 
-            //else {
-            //corriente.deposito(Long.parseLong(vistaTrans.jTvalor.getText()));
-            //JOptionPane.showMessageDialog(null, "El nuevo saldo es: "+cuenta1.getSaldo());
+            } else {
+
+                this.cuentaDAO.modificaProducto(indice, new Corriente(NumeroDeCuenta, saldo, new Persona(CedulaDeCiudadania, nombre), "Corriente"));
+
+            }
+        }
+
+        if ("Retirar".equals(e.getActionCommand())) {
+
+            int indice = cuentaDAO.obtenerProducto(cuenta1);
+
+            String tipocuenta = this.vistaTrans.jTtipoCuenta.getText();
+
+            int NumeroDeCuenta = Integer.parseInt(this.vistaTrans.jTnumeroCuenta.getText());
+
+            long saldo = cuenta1.retiro(Long.parseLong(vistaTrans.jTvalor.getText()));
+
+            int CedulaDeCiudadania = Integer.parseInt(this.vistaTrans.jTIdentificacion.getText());
+            String nombre = this.vistaTrans.jTtitular.getText();
+
+            if (tipocuenta.equals("Ahorros")) {
+                this.cuentaDAO.modificaProducto(indice, new Ahorro(NumeroDeCuenta, saldo, new Persona(CedulaDeCiudadania, nombre), "Ahorros"));
+
+            } else {
+
+                this.cuentaDAO.modificaProducto(indice, new Corriente(NumeroDeCuenta, saldo, new Persona(CedulaDeCiudadania, nombre), "Corriente"));
+
+            }
+
         }
 
     }

@@ -269,7 +269,7 @@ public class VistaCuenta extends javax.swing.JFrame {
 
     private void jBTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTransaccionActionPerformed
         
-        this.dispose();
+        //this.dispose();
         
 
     }//GEN-LAST:event_jBTransaccionActionPerformed

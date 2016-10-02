@@ -23,7 +23,6 @@ public class Ahorro extends Cuenta implements Serializable {
     public long deposito(long deposito) {
 
         //suma del saldo mas el deposito
-        System.out.println("Test");
         saldo += deposito;
         //suma del saldo mas el 3% del interes
 
@@ -33,23 +32,29 @@ public class Ahorro extends Cuenta implements Serializable {
         //JOptionPane.showMessageDialog(null, "Su nuevo saldo es: "+saldobase);
         System.out.println(saldo);
 
+        JOptionPane.showMessageDialog(null, "Su nuevo saldo es: " + saldo);
+
         return saldo;
 
     }
 
     @Override
-    public long retiro(long saldobase, long retiro) {
+    public long retiro(long retiro) {
 
         //condición para verificar que no se presente un sobregiro en la cuenta
-        if (retiro > saldobase) {
+        if (retiro > saldo) {
+
+            JOptionPane.showMessageDialog(null, "El retiro es superior al saldo existente, no se permite sobregiro.");
 
         } else {
 
-            retiro = (saldobase - retiro);
+            saldo = (saldo - retiro);
+
+            JOptionPane.showMessageDialog(null, "Su nuevo saldo es: " + saldo);
 
         }
 
-        return saldobase;
+        return saldo;
 
     }
 

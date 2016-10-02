@@ -60,7 +60,7 @@ public abstract class Cuenta {
 
     public abstract long deposito(long deposito);
 
-    public abstract long retiro(long saldobase, long retiro);
+    public abstract long retiro(long retiro);
 
     @Override
     public String toString() {
