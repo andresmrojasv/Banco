@@ -6,6 +6,7 @@
 package Modelo;
 
 import java.io.Serializable;
+import javax.swing.JOptionPane;
 
 /**
  * *Autores: Pablo Garcia (38862), Andrés Rojas (41423), Daniel Rosero (41305)
@@ -20,28 +21,37 @@ public class Corriente extends Cuenta implements Serializable {
     }
 
     @Override
-    public long deposito(long deposito) {
+    public long deposito( long deposito) {
 
         //sumatoria del nuevo saldo
         saldo += deposito;
+
+        JOptionPane.showMessageDialog(null, "Su nuevo saldo es: " + saldo);
+
         return saldo;
 
     }
 
     @Override
-    public long retiro(long retiro) {
+    public long retiro(long saldobase, long retiro) {
 
         //condición para verificar los casos en los que se presenta un sobregiro en la cuenta
-        if (retiro > saldo) {
+        if (retiro > saldobase) {
 
-            saldo = retiro - saldo;
+            saldobase = retiro - saldobase;
+
+            JOptionPane.showMessageDialog(null, "Se ha presentado un sobregiro de: " + saldobase);
+
+            saldobase *= -1;
 
         } else {
-            saldo = saldo - retiro;
+            saldobase = saldobase - retiro;
+
+            JOptionPane.showMessageDialog(null, "Su nuevo saldo es: " + saldobase);
 
         }
 
-        return saldo;
+        return saldobase;
 
     }
 

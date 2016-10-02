@@ -51,6 +51,7 @@ public class CuentaDAO {
     }
 
     public void modificaProducto(int indice, Cuenta cuenta) {
+    
         listaCliente.set(indice, cuenta);
 
     }

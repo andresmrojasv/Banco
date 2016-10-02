@@ -13,6 +13,7 @@ import Modelo.Persona;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Vista.VistaTransaccion;
+import javax.swing.JOptionPane;
 
 public class ControladorTrans implements ActionListener {
 
@@ -50,6 +51,7 @@ public class ControladorTrans implements ActionListener {
             if (cuenta1 != null) {
                 vistaTrans.jTnumeroCuenta.setText(String.valueOf(cuenta1.getNumero()));
                 vistaTrans.jTtitular.setText(cuenta1.getTitular().getNombre());
+                vistaTrans.jTIdentificacion.setText(String.valueOf(cuenta1.getTitular().getId()));
                 vistaTrans.jTtipoCuenta.setText(cuenta1.getTipoCuenta());
                 //cambiar a double
                 vistaTrans.jTsaldo.setText(String.valueOf(cuenta1.getSaldo()));
@@ -57,6 +59,30 @@ public class ControladorTrans implements ActionListener {
 
         }
 
-    }
+        if ("Consignar".equals(e.getActionCommand())) {
 
+            int indice = cuentaDAO.obtenerProducto(cuenta1);
+
+            // if (vistaTrans.jTtipoCuenta.getText() == "Ahorros") {
+            int NumeroDeCuenta = Integer.parseInt(this.vistaTrans.jTnumeroCuenta.getText());
+
+           //long saldobase=Long.parseLong(this.vistaTrans.jTsaldo.getText());
+           //long consignar = Long.parseLong(vistaTrans.jTvalor.getText());
+            //System.out.println(consignar);
+
+            long saldo = cuenta1.deposito(Long.parseLong(vistaTrans.jTvalor.getText()));
+
+            int CedulaDeCiudadania = Integer.parseInt(this.vistaTrans.jTIdentificacion.getText());
+            String nombre = this.vistaTrans.jTtitular.getText();
+
+            this.cuentaDAO.modificaProducto(indice, new Ahorro(NumeroDeCuenta, saldo, new Persona(CedulaDeCiudadania, nombre), "Ahorro"));
+
+            //JOptionPane.showMessageDialog(null, "El nuevo saldo es: "+cuenta1.getSaldo());
+            // } 
+            //else {
+            //corriente.deposito(Long.parseLong(vistaTrans.jTvalor.getText()));
+            //JOptionPane.showMessageDialog(null, "El nuevo saldo es: "+cuenta1.getSaldo());
+        }
+
+    }
 }
