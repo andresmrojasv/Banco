@@ -28,23 +28,22 @@ public class VistaListaCuentas extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTListaCuentas = new javax.swing.JTable();
         jBListarCliente = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lista de cuentas");
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(java.awt.Color.white);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTListaCuentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Nombre", "Cédula", "Tipo de cuenta", "Saldo"
+                "Nombre", "Cédula", "Tipo de cuenta", "No. Cuenta", "Saldo"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTListaCuentas);
 
         jBListarCliente.setText("Listar Cuentas");
 
@@ -55,7 +54,7 @@ public class VistaListaCuentas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jBListarCliente)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -68,7 +67,7 @@ public class VistaListaCuentas extends javax.swing.JFrame {
                 .addComponent(jBListarCliente)
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -112,6 +111,6 @@ public class VistaListaCuentas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jBListarCliente;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTListaCuentas;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,6 +11,7 @@ import Modelo.Corriente;
 import Modelo.CuentaDAO;
 import Modelo.Persona;
 import Vista.VistaCuenta;
+import Vista.VistaListaCuentas;
 import Vista.VistaTransaccion;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -25,6 +26,7 @@ public class ControladorCuenta implements ActionListener {
     VistaCuenta vistaCuenta;
     Persona persona;
     VistaTransaccion vistaTrans;
+    VistaListaCuentas listaCuentas;
 
     public ControladorCuenta(CuentaDAO cuentaDAO, VistaCuenta vistaCuenta) {
 
@@ -105,11 +107,20 @@ public class ControladorCuenta implements ActionListener {
 
         }
 
-        if ("Transacción".equals(e.getActionCommand())) {
+        if (e.getSource() == this.vistaCuenta.jBTransaccion) {
 
-         
-            
-            
+            VistaTransaccion vistatrans = new VistaTransaccion();
+
+            ControladorTrans controladorTrans = new ControladorTrans(cuentaDAO, vistatrans);
+
+            this.vistaCuenta.hide();
+
+        }
+
+        if (e.getSource() == this.vistaCuenta.jBListaCuentas) {
+            VistaListaCuentas ListaProducto = new VistaListaCuentas();
+
+            ControladorListaCuentas controladorLista = new ControladorListaCuentas(cuentaDAO, ListaProducto);
 
         }
 

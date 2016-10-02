@@ -35,7 +35,7 @@ public class ControladorTrans implements ActionListener {
         this.vistaTrans.jBbuscar.addActionListener(this);
         this.vistaTrans.jBRetirar.addActionListener(this);
         this.vistaTrans.jBConsignar.addActionListener(this);
-        
+
         this.vistaTrans.setVisible(true);
         this.vistaTrans.setLocationRelativeTo(null);
 

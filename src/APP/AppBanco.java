@@ -24,7 +24,7 @@ public class AppBanco {
         CuentaDAO cuentaDao = new CuentaDAO();
 
         ControladorCuenta controladorCuenta = new ControladorCuenta(cuentaDao, vistacuenta);
-        ControladorTrans controladorTrans = new ControladorTrans(cuentaDao, vistaTrans);
+        //ControladorTrans controladorTrans = new ControladorTrans(cuentaDao, vistaTrans);
 
     }
 

@@ -60,7 +60,7 @@ public class CuentaDAO {
         listaCliente.remove(cuenta);
     }
 
-    public ArrayList<Cuenta> listaDeProductos() {
+    public ArrayList<Cuenta> listaDeCuentas() {
         return listaCliente;
     }
 
