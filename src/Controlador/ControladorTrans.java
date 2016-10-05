@@ -35,6 +35,7 @@ public class ControladorTrans implements ActionListener {
         this.vistaTrans.jBbuscar.addActionListener(this);
         this.vistaTrans.jBRetirar.addActionListener(this);
         this.vistaTrans.jBConsignar.addActionListener(this);
+        this.vistaTrans.jBSalirTransaccion.addActionListener(this);
 
         this.vistaTrans.setVisible(true);
         this.vistaTrans.setLocationRelativeTo(null);
@@ -88,6 +89,13 @@ public class ControladorTrans implements ActionListener {
                 this.cuentaDAO.modificaProducto(indice, new Corriente(NumeroDeCuenta, saldo, new Persona(CedulaDeCiudadania, nombre), "Corriente"));
 
             }
+
+            this.vistaTrans.jTIdentificacion.setText(null);
+            this.vistaTrans.jTnumeroCuenta.setText(null);
+            this.vistaTrans.jTsaldo.setText(null);
+            this.vistaTrans.jTtipoCuenta.setText(null);
+            this.vistaTrans.jTtitular.setText(null);
+            this.vistaTrans.jTvalor.setText(null);
         }
 
         if ("Retirar".equals(e.getActionCommand())) {
@@ -112,7 +120,31 @@ public class ControladorTrans implements ActionListener {
 
             }
 
+            this.vistaTrans.jTIdentificacion.setText(null);
+            this.vistaTrans.jTnumeroCuenta.setText(null);
+            this.vistaTrans.jTsaldo.setText(null);
+            this.vistaTrans.jTtipoCuenta.setText(null);
+            this.vistaTrans.jTtitular.setText(null);
+            this.vistaTrans.jTvalor.setText(null);
+
         }
 
+        if (e.getSource() == this.vistaTrans.jBSalirTransaccion) {
+
+            VistaCuenta vistaCuenta = new VistaCuenta();
+
+            ControladorCuenta controladorCuenta = new ControladorCuenta(cuentaDAO, vistaCuenta);
+
+            this.vistaTrans.hide();
+
+        }
+
+        /*        if (e.getSource() == this.vistaCuenta.jBListaCuentas) {
+         VistaListaCuentas ListaProducto = new VistaListaCuentas();
+        
+         ControladorListaCuentas controladorLista = new ControladorListaCuentas(cuentaDAO, ListaProducto);
+        
+         this.vistaCuenta.hide();
+         }*/
     }
 }

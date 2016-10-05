@@ -118,6 +118,7 @@ public class ControladorCuenta implements ActionListener {
         }
 
         if (e.getSource() == this.vistaCuenta.jBListaCuentas) {
+            
             VistaListaCuentas ListaProducto = new VistaListaCuentas();
 
             ControladorListaCuentas controladorLista = new ControladorListaCuentas(cuentaDAO, ListaProducto);

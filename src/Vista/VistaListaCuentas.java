@@ -30,7 +30,7 @@ public class VistaListaCuentas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTListaCuentas = new javax.swing.JTable();
         jBListarCliente = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jBSalirLista = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Lista de cuentas");
@@ -49,7 +49,7 @@ public class VistaListaCuentas extends javax.swing.JFrame {
 
         jBListarCliente.setText("Listar Cuentas");
 
-        jButton1.setText("jButton1");
+        jBSalirLista.setText("Salir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -62,7 +62,7 @@ public class VistaListaCuentas extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jBListarCliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(jBSalirLista)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -71,7 +71,7 @@ public class VistaListaCuentas extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBListarCliente)
-                    .addComponent(jButton1))
+                    .addComponent(jBSalirLista))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(33, Short.MAX_VALUE))
@@ -117,7 +117,7 @@ public class VistaListaCuentas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jBListarCliente;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton jBSalirLista;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTListaCuentas;
     // End of variables declaration//GEN-END:variables

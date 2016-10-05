@@ -21,7 +21,7 @@ public class Corriente extends Cuenta implements Serializable {
     }
 
     @Override
-    public long deposito( long deposito) {
+    public long deposito(long deposito) {
 
         //sumatoria del nuevo saldo
         saldo += deposito;
@@ -33,16 +33,14 @@ public class Corriente extends Cuenta implements Serializable {
     }
 
     @Override
-    public long retiro( long retiro) {
+    public long retiro(long retiro) {
 
         //condición para verificar los casos en los que se presenta un sobregiro en la cuenta
         if (retiro > saldo) {
 
-            saldo = retiro - saldo;
+            saldo = saldo - retiro;
 
             JOptionPane.showMessageDialog(null, "Se ha presentado un sobregiro de: " + saldo);
-
-            saldo *= -1;
 
         } else {
             saldo = saldo - retiro;
