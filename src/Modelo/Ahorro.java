@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class Ahorro extends Cuenta implements Serializable {
 
+    // se implementa constructor 
     public Ahorro(int numero, long saldo, Persona titular, String tipoCuenta) {
         super(numero, saldo, titular, tipoCuenta);
     }
@@ -29,9 +30,9 @@ public class Ahorro extends Cuenta implements Serializable {
         saldo = (long) (saldo + (saldo * 0.03));
         //se muestra el nuevo saldo de la cuenta
 
-        //JOptionPane.showMessageDialog(null, "Su nuevo saldo es: "+saldobase);
         System.out.println(saldo);
 
+        // Mediante un cuadro de dialogo se anuncia el nuevo saldo
         JOptionPane.showMessageDialog(null, "Su nuevo saldo es: " + saldo);
 
         return saldo;
@@ -44,16 +45,19 @@ public class Ahorro extends Cuenta implements Serializable {
         //condición para verificar que no se presente un sobregiro en la cuenta
         if (retiro > saldo) {
 
+            // Mediante un cuadro de dialogo se anuncia el nuevo saldo
             JOptionPane.showMessageDialog(null, "El retiro es superior al saldo existente, no se permite sobregiro.");
 
         } else {
 
             saldo = (saldo - retiro);
 
+            // Mediante un cuadro de dialogo se anuncia el nuevo saldo
             JOptionPane.showMessageDialog(null, "Su nuevo saldo es: " + saldo);
 
         }
 
+        //retornamos saldo obtenido en la operación correspondiente
         return saldo;
 
     }

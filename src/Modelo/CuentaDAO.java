@@ -14,12 +14,15 @@ import javax.swing.JOptionPane;
 
 public class CuentaDAO {
 
+    // creación de variables a utilizar (en este caso variables que hacen referencia a clases)
     private Cuenta cuenta;
     private Ahorro ahorro;
     private Corriente corriente;
 
+    // creación de array donde se almacenarán los objetos (en este caso lo usamos en lugar de una base de datos)
     ArrayList<Cuenta> listaCliente = new ArrayList();
 
+    // Creación de metodos que se utilizarán en el desarrollo de la aplicación (serán llamados desde los controladores)
     public void adicionarCuenta(Cuenta cuenta) {
 
         listaCliente.add(cuenta);
@@ -51,7 +54,7 @@ public class CuentaDAO {
     }
 
     public void modificaProducto(int indice, Cuenta cuenta) {
-    
+
         listaCliente.set(indice, cuenta);
 
     }

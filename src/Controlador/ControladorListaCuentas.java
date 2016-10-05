@@ -38,6 +38,8 @@ public class ControladorListaCuentas implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
+        
+        // se realiza un listado de todos los "clientes" en la tabla
 
         if (ae.getSource() == listaCuentas.jBListarCliente) {
 
@@ -56,6 +58,8 @@ public class ControladorListaCuentas implements ActionListener {
         }
 
         if (ae.getSource() == this.listaCuentas.jBSalirLista) {
+            
+            // se cierra la vista actual y se regresa a la jframe principal 
 
             VistaCuenta vistaCuenta = new VistaCuenta();
 

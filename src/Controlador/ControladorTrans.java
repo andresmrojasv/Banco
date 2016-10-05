@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 
 public class ControladorTrans implements ActionListener {
 
+    //creacion de variables a utilizar
     Cuenta cuenta1;
     Ahorro ahorro;
     Corriente corriente;
@@ -27,17 +28,22 @@ public class ControladorTrans implements ActionListener {
     Persona persona;
     VistaCuenta vistaCuenta;
 
+    // creación del constructor donde solo dejamos la clase DAO y la vista que se está manejando
     public ControladorTrans(CuentaDAO cuentaDAO, VistaTransaccion vistaTrans) {
 
         this.cuentaDAO = cuentaDAO;
         this.vistaTrans = vistaTrans;
 
+        //utilizamos el ActionListener para que los botones del jframe que se está manejando puedan ser utilizados
         this.vistaTrans.jBbuscar.addActionListener(this);
         this.vistaTrans.jBRetirar.addActionListener(this);
         this.vistaTrans.jBConsignar.addActionListener(this);
         this.vistaTrans.jBSalirTransaccion.addActionListener(this);
 
+        // SetVisible permite que el Jframe sea visible
         this.vistaTrans.setVisible(true);
+
+        // setLocationRelativeto nos permite ubicar el jframe en el centro de la panatalla (siempre y cuando sea null)
         this.vistaTrans.setLocationRelativeTo(null);
 
     }
@@ -49,12 +55,14 @@ public class ControladorTrans implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        // Se realizan las validaciones para identificar que botón fue seleccionado
         if ("Buscar".equals(e.getActionCommand())) {
 
-            System.out.println("test base");
-
+            // se toma el dato de identificación que se tiene en el jframe, se utiliza el metodo correspondiente a "buscar" que se tiene en 
+            // la clase DAO 
             cuenta1 = cuentaDAO.buscarCuenta(Integer.parseInt(this.vistaTrans.jTnumeroCuenta.getText()));
 
+            // una vez identificado el objeto que se estaba buscando se muestran todos sus datos en el jfráme 
             System.out.println(cuenta1);
 
             if (cuenta1 != null) {
@@ -62,7 +70,6 @@ public class ControladorTrans implements ActionListener {
                 vistaTrans.jTtitular.setText(cuenta1.getTitular().getNombre());
                 vistaTrans.jTIdentificacion.setText(String.valueOf(cuenta1.getTitular().getId()));
                 vistaTrans.jTtipoCuenta.setText(cuenta1.getTipoCuenta());
-                //cambiar a double
                 vistaTrans.jTsaldo.setText(String.valueOf(cuenta1.getSaldo()));
             }
 
@@ -70,6 +77,8 @@ public class ControladorTrans implements ActionListener {
 
         if ("Consignar".equals(e.getActionCommand())) {
 
+            // una vez identificado el objeto que se va a manejar (por medio de buscar) se toman los nuevos datos (saldo) 
+            // y son guardados nuevamente en el objeto
             int indice = cuentaDAO.obtenerProducto(cuenta1);
 
             String tipocuenta = this.vistaTrans.jTtipoCuenta.getText();
@@ -100,6 +109,8 @@ public class ControladorTrans implements ActionListener {
 
         if ("Retirar".equals(e.getActionCommand())) {
 
+             // una vez identificado el objeto que se va a manejar (por medio de buscar) se toman los nuevos datos (saldo) 
+            // y son guardados nuevamente en el objeto
             int indice = cuentaDAO.obtenerProducto(cuenta1);
 
             String tipocuenta = this.vistaTrans.jTtipoCuenta.getText();
@@ -139,12 +150,5 @@ public class ControladorTrans implements ActionListener {
 
         }
 
-        /*        if (e.getSource() == this.vistaCuenta.jBListaCuentas) {
-         VistaListaCuentas ListaProducto = new VistaListaCuentas();
-        
-         ControladorListaCuentas controladorLista = new ControladorListaCuentas(cuentaDAO, ListaProducto);
-        
-         this.vistaCuenta.hide();
-         }*/
     }
 }

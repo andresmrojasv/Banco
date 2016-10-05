@@ -22,7 +22,7 @@ public class Persona {
         this.nombre = nombre;
     }
 
-    //el tostring nos mostrará los datos en el momento que la clase sea llamada
+    // implementamos get y set necesarios 
     
     public int getId() {
     return id;
@@ -39,6 +39,8 @@ public class Persona {
     public void setNombre(String nombre) {
     this.nombre = nombre;
     }
+    
+    // se utilizó un to string para verificar el correcto funcionamiento durante el desarrollo.
 
     @Override
     public String toString() {

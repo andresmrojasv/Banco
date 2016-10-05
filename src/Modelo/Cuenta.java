@@ -14,10 +14,13 @@ public abstract class Cuenta {
 
     /*creación de clase abstracta en donde se agregarán las variables y metodos 
      que serán utilizados diferentes subclases*/
+    
     protected int numero;
     protected long saldo;
     protected Persona titular;
     protected String tipoCuenta;
+    
+    // constructor de clase cuenta
 
     public Cuenta(int numero, long saldo, Persona titular, String tipoCuenta) {
         this.numero = numero;
@@ -25,6 +28,8 @@ public abstract class Cuenta {
         this.titular = titular;
         this.tipoCuenta = tipoCuenta;
     }
+    
+    //implementación de get y set correspondientes a la clase
 
     public int getNumero() {
         return numero;
@@ -61,6 +66,8 @@ public abstract class Cuenta {
     public abstract long deposito(long deposito);
 
     public abstract long retiro(long retiro);
+    
+    // se utilizó un to string para realizar pruebas durante el desarrollo del ejercicio
 
     @Override
     public String toString() {

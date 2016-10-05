@@ -14,7 +14,8 @@ import javax.swing.JOptionPane;
  * @author ESTACION
  */
 public class Corriente extends Cuenta implements Serializable {
-
+    
+    // se implementa el constructor 
     public Corriente(int numero, long saldo, Persona titular, String tipoCuenta) {
         super(numero, saldo, titular, tipoCuenta);
 
@@ -25,7 +26,8 @@ public class Corriente extends Cuenta implements Serializable {
 
         //sumatoria del nuevo saldo
         saldo += deposito;
-
+        
+        // Mediante un cuadro de dialogo se anuncia el nuevo saldo
         JOptionPane.showMessageDialog(null, "Su nuevo saldo es: " + saldo);
 
         return saldo;
@@ -39,12 +41,14 @@ public class Corriente extends Cuenta implements Serializable {
         if (retiro > saldo) {
 
             saldo = saldo - retiro;
-
+            
+            // Mediante un cuadro de dialogo se anuncia el nuevo saldo
             JOptionPane.showMessageDialog(null, "Se ha presentado un sobregiro de: " + saldo);
 
         } else {
             saldo = saldo - retiro;
-
+            
+            // Mediante un cuadro de dialogo se anuncia el nuevo saldo
             JOptionPane.showMessageDialog(null, "Su nuevo saldo es: " + saldo);
 
         }
