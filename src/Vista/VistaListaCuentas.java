@@ -30,7 +30,9 @@ public class VistaListaCuentas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTListaCuentas = new javax.swing.JTable();
         jBListarCliente = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Lista de cuentas");
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(java.awt.Color.white);
@@ -47,6 +49,8 @@ public class VistaListaCuentas extends javax.swing.JFrame {
 
         jBListarCliente.setText("Listar Cuentas");
 
+        jButton1.setText("jButton1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -57,14 +61,17 @@ public class VistaListaCuentas extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jBListarCliente)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jBListarCliente)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBListarCliente)
+                    .addComponent(jButton1))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(33, Short.MAX_VALUE))
@@ -110,6 +117,7 @@ public class VistaListaCuentas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jBListarCliente;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTListaCuentas;
     // End of variables declaration//GEN-END:variables

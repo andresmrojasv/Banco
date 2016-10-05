@@ -45,6 +45,7 @@ public class VistaTransaccion extends javax.swing.JFrame {
         jBConsignar = new javax.swing.JButton();
         jBRetirar = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Transaccion");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));

@@ -122,6 +122,7 @@ public class ControladorCuenta implements ActionListener {
 
             ControladorListaCuentas controladorLista = new ControladorListaCuentas(cuentaDAO, ListaProducto);
 
+            this.vistaCuenta.hide();
         }
 
     }
